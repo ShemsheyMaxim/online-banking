@@ -1,5 +1,6 @@
 package com.springboot.onlinebanking.service.impl;
 
+import com.springboot.onlinebanking.exception.DataProcessingException;
 import com.springboot.onlinebanking.model.User;
 import com.springboot.onlinebanking.repository.UserRepository;
 import com.springboot.onlinebanking.service.UserService;
@@ -36,5 +37,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(User user) {
         userRepository.delete(user);
+    }
+
+    @Override
+    public User findUserByUserNumber(String phoneNumber) {
+        return userRepository.findUserByPhoneNumber(phoneNumber)
+                .orElseThrow(() -> new DataProcessingException("Can't find user by phone number: "
+                        + phoneNumber + " from table."));
     }
 }
