@@ -5,5 +5,7 @@ import com.springboot.onlinebanking.model.Transaction;
 import java.util.List;
 
 public interface TransactionService {
+    Transaction save(Transaction transaction);
+
     List<Transaction> getAllByAccount(int page, int size, Account account);
 }

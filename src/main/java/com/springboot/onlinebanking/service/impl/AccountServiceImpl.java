@@ -24,8 +24,8 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public Account findAccountByAccountNumber(String accountNumber) {
-        return accountRepository.findAccountByAccountNumber(accountNumber).orElseThrow(() ->
+    public Account getByAccountNumber(String accountNumber) {
+        return accountRepository.getByAccountNumber(accountNumber).orElseThrow(() ->
                 new DataProcessingException("Can't find account by account number = "
                         + accountNumber));
     }

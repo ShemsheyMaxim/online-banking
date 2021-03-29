@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -20,10 +19,10 @@ public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "from_account", nullable = false)
     private Account fromAccount;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "to_account", nullable = false)
     private Account toAccount;
     @Column(nullable = false)

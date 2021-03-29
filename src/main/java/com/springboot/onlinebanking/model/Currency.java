@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "cyrrencies")
+@Table(name = "currencies")
 public class Currency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
