@@ -21,7 +21,7 @@ public class TypeOperation {
     @Column(name = "operation_name")
     private TypeOperationName operationName;
 
-    private enum TypeOperationName {
+    public enum TypeOperationName {
         INCOMING, OUTCOMING
     }
 }

@@ -2,6 +2,7 @@ package com.springboot.onlinebanking.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,12 +21,14 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @JoinColumn(name = "from_account")
+    @JoinColumn(name = "from_account", nullable = false)
     private Account fromAccount;
     @OneToOne
-    @JoinColumn(name = "to_account")
+    @JoinColumn(name = "to_account", nullable = false)
     private Account toAccount;
+    @Column(nullable = false)
     private LocalDateTime date;
+    @Column(nullable = false)
     private BigDecimal amount;
     @ManyToOne
     private TypeOperation type;
