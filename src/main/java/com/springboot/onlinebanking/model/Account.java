@@ -8,10 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.DecimalMin;
 import lombok.Data;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
 
 @Data
@@ -31,6 +31,7 @@ public class Account {
     private BigDecimal balance;
     @Column(name = "is_active")
     private boolean isActive;
-    @OneToOne
+    @ManyToOne
+    @ToString.Exclude
     private User user;
 }
