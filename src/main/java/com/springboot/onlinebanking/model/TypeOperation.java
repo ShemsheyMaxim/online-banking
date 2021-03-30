@@ -12,16 +12,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "roles")
-public class Role {
+@Table(name = "type_operations")
+public class TypeOperation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_name")
-    private RoleName roleName;
+    @Column(name = "operation_name")
+    private TypeOperationName operationName;
 
-    public enum RoleName {
-        ADMIN, USER
+    public enum TypeOperationName {
+        INCOMING, OUTCOMING
     }
 }

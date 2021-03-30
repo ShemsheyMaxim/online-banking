@@ -12,16 +12,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "roles")
-public class Role {
+@Table(name = "currencies")
+public class Currency {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Enumerated(EnumType.STRING)
-    @Column(name = "role_name")
-    private RoleName roleName;
+    @Column(name = "currency_name")
+    private CurrencyName currencyName;
 
-    public enum RoleName {
-        ADMIN, USER
+    public enum CurrencyName {
+        USD, EUR, UAH
     }
 }
